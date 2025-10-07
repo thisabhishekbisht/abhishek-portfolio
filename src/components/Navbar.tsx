@@ -10,6 +10,7 @@ const SECTIONS: NavItem[] = [
   { id: 'hero', label: 'Home' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
   { id: 'about', label: 'About' },
   { id: 'resume', label: 'Resume' },
   { id: 'contact', label: 'Contact' }

@@ -1,1 +1,17 @@
 /* Intentionally minimal: per-component styles live with components */
+
+/* Experience Section Scrollbar Styling */
+.experience-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.experience-scroll::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Smooth scrolling for experience cards */
+.experience-scroll {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}

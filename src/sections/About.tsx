@@ -2,12 +2,29 @@ import Section from '../components/Section'
 
 export default function About() {
   return (
-    <Section id="about" title="About this site" subtitle="AI-assisted, modern React stack">
-      <div style={{ display: 'grid', gap: '0.75rem' }}>
-        <p>
-          This portfolio was built with React and TypeScript using modern UI patterns and animations. I leveraged AI assistance to
-          accelerate layout, component scaffolding, and styling, then refined interactions and content manually.
-        </p>
+    <Section id="about" title="About Me" subtitle="Senior Software Developer with expertise in mobile applications and enterprise solutions">
+      <div style={{ display: 'grid', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gap: '1rem' }}>
+          <p>
+            I'm a Senior Software Developer at Tata Consultancy Services with extensive experience in building scalable mobile applications 
+            and enterprise solutions. I specialize in Android development using modern technologies like Jetpack Compose, Kotlin, and 
+            clean architecture patterns.
+          </p>
+          <p>
+            My expertise spans across e-commerce platforms like TataCliq and OTT streaming services like SonyLiv, where I've contributed 
+            to building robust, secure, and high-performance applications serving millions of users.
+          </p>
+        </div>
+        
+        <div style={{ display: 'grid', gap: '1rem' }}>
+          <h3 style={{ margin: 0, fontSize: '1.125rem', fontWeight: '600', color: 'var(--color-accent)' }}>
+            About This Portfolio
+          </h3>
+          <p>
+            This portfolio was built with React and TypeScript using modern UI patterns and animations. I leveraged AI assistance to
+            accelerate layout, component scaffolding, and styling, then refined interactions and content manually.
+          </p>
+        </div>
         <div
           style={{
             display: 'grid',

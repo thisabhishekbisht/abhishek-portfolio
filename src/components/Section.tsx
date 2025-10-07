@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 type SectionProps = PropsWithChildren<{
   id: string
