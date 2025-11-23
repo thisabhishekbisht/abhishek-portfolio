@@ -20,6 +20,7 @@ export default function Navbar() {
   const [active, setActive] = useState<string>('hero')
 
   // Observe section visibility to highlight active nav item
+  // Observe section visibility to highlight active nav item
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -29,12 +30,42 @@ export default function Navbar() {
           }
         }
       },
-      { root: null, rootMargin: '0px', threshold: 0.6 }
+      { root: null, rootMargin: '-20% 0px -35% 0px', threshold: 0 }
     )
 
-    const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean) as Element[]
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    const observeElements = () => {
+      const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean) as Element[]
+      elements.forEach((el) => observer.observe(el))
+      return elements.length === SECTIONS.length
+    }
+
+    // Initial observation
+    const allFound = observeElements()
+
+    // If not all elements are found (due to lazy loading), observe DOM mutations
+    let mutationObserver: MutationObserver | null = null
+
+    if (!allFound) {
+      mutationObserver = new MutationObserver(() => {
+        if (observeElements()) {
+          mutationObserver?.disconnect()
+          mutationObserver = null
+        }
+      })
+
+      const main = document.querySelector('main')
+      if (main) {
+        mutationObserver.observe(main, { childList: true, subtree: true })
+      } else {
+        // Fallback to body if main isn't ready yet
+        mutationObserver.observe(document.body, { childList: true, subtree: true })
+      }
+    }
+
+    return () => {
+      observer.disconnect()
+      mutationObserver?.disconnect()
+    }
   }, [])
 
   const indicatorStyle = useMemo(() => ({

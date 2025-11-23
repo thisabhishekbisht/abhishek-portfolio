@@ -8,10 +8,11 @@ export default function Contact() {
           style={{
             display: 'grid',
             gap: '0.5rem',
-            background: 'color-mix(in oklab, var(--color-surface) 85%, black)',
-            border: '1px solid color-mix(in oklab, var(--color-accent) 15%, transparent)',
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: '1px solid var(--color-surface-highlight)',
             borderRadius: 'var(--radius)',
-            padding: '1rem'
+            padding: '1rem',
+            color: 'var(--color-text)'
           }}
         >
           <div style={{ display: 'grid', gap: 4 }}>

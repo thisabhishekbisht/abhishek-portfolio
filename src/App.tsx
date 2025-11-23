@@ -1,12 +1,14 @@
+import { Suspense, lazy } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
-import Skills from './sections/Skills'
-import Projects from './sections/Projects'
-import Experience from './sections/Experience'
-import About from './sections/About'
-import Resume from './sections/Resume'
-import Contact from './sections/Contact'
+
+const Skills = lazy(() => import('./sections/Skills'))
+const Projects = lazy(() => import('./sections/Projects'))
+const Experience = lazy(() => import('./sections/Experience'))
+const About = lazy(() => import('./sections/About'))
+const Resume = lazy(() => import('./sections/Resume'))
+const Contact = lazy(() => import('./sections/Contact'))
 
 function App() {
   return (
@@ -14,12 +16,14 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <About />
-        <Resume />
-        <Contact />
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+          <Skills />
+          <Projects />
+          <Experience />
+          <About />
+          <Resume />
+          <Contact />
+        </Suspense>
       </main>
     </>
   )

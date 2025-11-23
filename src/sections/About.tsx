@@ -6,16 +6,16 @@ export default function About() {
       <div style={{ display: 'grid', gap: '1.5rem' }}>
         <div style={{ display: 'grid', gap: '1rem' }}>
           <p>
-            I'm a Senior Software Developer at Tata Consultancy Services with extensive experience in building scalable mobile applications 
-            and enterprise solutions. I specialize in Android development using modern technologies like Jetpack Compose, Kotlin, and 
+            I'm a Senior Software Developer at Tata Consultancy Services with extensive experience in building scalable mobile applications
+            and enterprise solutions. I specialize in Android development using modern technologies like Jetpack Compose, Kotlin, and
             clean architecture patterns.
           </p>
           <p>
-            My expertise spans across e-commerce platforms like TataCliq and OTT streaming services like SonyLiv, where I've contributed 
+            My expertise spans across e-commerce platforms like TataCliq and OTT streaming services like SonyLiv, where I've contributed
             to building robust, secure, and high-performance applications serving millions of users.
           </p>
         </div>
-        
+
         <div style={{ display: 'grid', gap: '1rem' }}>
           <h3 style={{ margin: 0, fontSize: '1.125rem', fontWeight: '600', color: 'var(--color-accent)' }}>
             About This Portfolio
@@ -42,7 +42,8 @@ export default function About() {
                 fontSize: 12,
                 padding: '0.3rem 0.6rem',
                 borderRadius: 999,
-                border: '1px solid color-mix(in oklab, var(--color-accent) 20%, transparent)'
+                background: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(255,255,255,0.25)'
               }}>
                 {t}
               </span>

@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Section from '../components/Section'
 import { useRef } from 'react'
+import type { ExperienceData } from '../types'
+import TechBadge from '../components/TechBadge'
 
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -9,7 +11,7 @@ export default function Experience() {
     offset: ["start end", "end start"]
   })
 
-  const experiences = [
+  const experiences: ExperienceData[] = [
     {
       company: 'Tata Consultancy Services',
       position: 'Senior Software Developer',
@@ -62,25 +64,20 @@ export default function Experience() {
 
   return (
     <Section id="experience" title="Professional Experience" subtitle="Building scalable mobile applications and enterprise solutions">
-      <motion.div 
+      <motion.div
         ref={containerRef}
-        style={{ 
+        style={{
           y,
           opacity,
           overflow: 'hidden',
           padding: '1rem 0'
         }}
       >
-        <div 
+        <div
           style={{
             display: 'flex',
             gap: '2rem',
-            padding: '1rem 0',
-            overflowX: 'auto',
-            scrollSnapType: 'x mandatory',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            WebkitScrollbar: { display: 'none' }
+            padding: '1rem 0'
           }}
           className="experience-scroll"
         >
@@ -88,19 +85,19 @@ export default function Experience() {
             <motion.article
               key={index}
               initial={{ opacity: 0, x: 100, rotateY: 15 }}
-              whileInView={{ 
-                opacity: 1, 
-                x: 0, 
+              whileInView={{
+                opacity: 1,
+                x: 0,
                 rotateY: 0,
-                transition: { 
-                  duration: 0.8, 
+                transition: {
+                  duration: 0.8,
                   delay: index * 0.2,
                   type: "spring",
                   stiffness: 100,
                   damping: 15
                 }
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 rotateY: -5,
                 transition: { duration: 0.3 }
@@ -139,9 +136,9 @@ export default function Experience() {
               {/* Company Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
                 <div>
-                  <motion.h3 
-                    style={{ 
-                      margin: '0 0 0.5rem 0', 
+                  <motion.h3
+                    style={{
+                      margin: '0 0 0.5rem 0',
                       fontSize: '1.5rem',
                       fontWeight: '700',
                       background: 'linear-gradient(135deg, var(--color-text), var(--color-accent))',
@@ -154,15 +151,15 @@ export default function Experience() {
                   >
                     {exp.company}
                   </motion.h3>
-                  <div style={{ 
-                    fontSize: '1.125rem', 
+                  <div style={{
+                    fontSize: '1.125rem',
                     fontWeight: '600',
                     color: 'var(--color-accent)',
                     marginBottom: '0.25rem'
                   }}>
                     {exp.position}
                   </div>
-                  <div style={{ 
+                  <div style={{
                     fontSize: '0.875rem',
                     color: 'color-mix(in oklab, var(--color-text) 70%, transparent)',
                     marginBottom: '0.25rem'
@@ -171,9 +168,9 @@ export default function Experience() {
                   </div>
                 </div>
                 {exp.website && (
-                  <motion.a 
-                    href={exp.website} 
-                    target="_blank" 
+                  <motion.a
+                    href={exp.website}
+                    target="_blank"
                     rel="noreferrer"
                     style={{ textDecoration: 'none' }}
                     whileHover={{ scale: 1.1 }}
@@ -197,28 +194,28 @@ export default function Experience() {
               </div>
 
               {/* Key Achievements */}
-              <motion.div 
+              <motion.div
                 style={{ marginBottom: '2rem', position: 'relative', zIndex: 1 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
-                <h4 style={{ 
-                  margin: '0 0 1rem 0', 
+                <h4 style={{
+                  margin: '0 0 1rem 0',
                   fontSize: '1.125rem',
                   fontWeight: '600',
                   color: 'var(--color-accent)'
                 }}>
                   Key Achievements
                 </h4>
-                <ul style={{ 
-                  margin: 0, 
+                <ul style={{
+                  margin: 0,
                   paddingLeft: '1.25rem',
                   lineHeight: '1.6'
                 }}>
                   {exp.achievements.map((achievement, idx) => (
-                    <motion.li 
-                      key={idx} 
+                    <motion.li
+                      key={idx}
                       style={{ marginBottom: '0.75rem' }}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -237,8 +234,8 @@ export default function Experience() {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 style={{ position: 'relative', zIndex: 1 }}
               >
-                <h4 style={{ 
-                  margin: '0 0 1rem 0', 
+                <h4 style={{
+                  margin: '0 0 1rem 0',
                   fontSize: '1.125rem',
                   fontWeight: '600',
                   color: 'var(--color-accent)'
@@ -247,14 +244,14 @@ export default function Experience() {
                 </h4>
                 <div style={{ display: 'grid', gap: '1.5rem' }}>
                   {Object.entries(exp.techStack).map(([category, skills], categoryIndex) => (
-                    <motion.div 
+                    <motion.div
                       key={category}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.6 + index * 0.1 + categoryIndex * 0.05 }}
                     >
-                      <h5 style={{ 
-                        margin: '0 0 0.5rem 0', 
+                      <h5 style={{
+                        margin: '0 0 0.5rem 0',
                         fontSize: '0.875rem',
                         fontWeight: '600',
                         color: 'color-mix(in oklab, var(--color-text) 80%, transparent)',
@@ -265,28 +262,7 @@ export default function Experience() {
                       </h5>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                         {skills.map((skill, skillIndex) => (
-                          <motion.span 
-                            key={skill}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            transition={{ 
-                              delay: 0.7 + index * 0.1 + categoryIndex * 0.05 + skillIndex * 0.02,
-                              duration: 0.2
-                            }}
-                            style={{
-                              fontSize: '0.75rem',
-                              padding: '0.375rem 0.75rem',
-                              borderRadius: '20px',
-                              background: 'color-mix(in oklab, var(--color-accent) 15%, transparent)',
-                              border: '1px solid color-mix(in oklab, var(--color-accent) 30%, transparent)',
-                              color: 'var(--color-accent)',
-                              fontWeight: '500',
-                              cursor: 'default'
-                            }}
-                          >
-                            {skill}
-                          </motion.span>
+                          <TechBadge key={skill} name={skill} index={skillIndex} />
                         ))}
                       </div>
                     </motion.div>

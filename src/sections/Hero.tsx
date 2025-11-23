@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
-import Section from '../components/Section'
-import { FaGithub, FaLinkedin, FaAndroid, FaReact } from 'react-icons/fa'
-import { SiFlutter, SiKotlin } from 'react-icons/si'
+import { motion } from 'framer-motion';
+import Section from '../components/Section';
+import { FaGithub, FaLinkedin, FaAndroid, FaReact } from 'react-icons/fa';
+import { SiFlutter, SiKotlin } from 'react-icons/si';
 
 export default function Hero() {
   return (
@@ -17,10 +17,8 @@ export default function Hero() {
             style={{
               position: 'absolute',
               inset: -30,
-              background:
-                'radial-gradient(700px 340px at 25% 20%, color-mix(in oklab, var(--color-accent) 22%, transparent), transparent), radial-gradient(560px 260px at 70% 60%, color-mix(in oklab, var(--color-accent-2) 16%, transparent), transparent)',
               zIndex: -1,
-              pointerEvents: 'none'
+              pointerEvents: 'none',
             }}
           />
           <div style={{ position: 'relative', zIndex: 10 }}>
@@ -57,7 +55,7 @@ export default function Hero() {
               { icon: <SiKotlin size={18} />, label: 'Kotlin/Java' },
               { icon: <FaAndroid size={18} />, label: 'Android' },
               { icon: <SiFlutter size={18} />, label: 'Flutter' },
-              { icon: <FaReact size={18} />, label: 'React' }
+              { icon: <FaReact size={18} />, label: 'React' },
             ].map((b) => (
               <span
                 key={b.label}
@@ -67,7 +65,8 @@ export default function Hero() {
                   gap: 6,
                   padding: '0.4rem 0.7rem',
                   borderRadius: 999,
-                  border: '1px solid color-mix(in oklab, var(--color-accent) 22%, transparent)'
+                  background: 'rgba(255,255,255,0.12)',
+                  border: '1px solid rgba(255,255,255,0.25)',
                 }}
               >
                 <span style={{ color: 'var(--color-accent)' }}>{b.icon}</span>
@@ -78,30 +77,30 @@ export default function Hero() {
 
           {/* Actions */}
           <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.25rem', flexWrap: 'wrap' }}>
-            <button 
+            <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ 
+              style={{
                 background: 'transparent',
                 border: '1px solid color-mix(in oklab, var(--color-accent) 50%, transparent)',
                 color: 'var(--color-text)',
                 padding: '0.75rem 1.1rem',
                 borderRadius: 'var(--radius)',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
               }}
             >
               View Projects
             </button>
-            <button 
+            <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ 
+              style={{
                 background: 'linear-gradient(180deg, var(--color-accent), var(--color-accent-2))',
                 color: '#0b0f1a',
                 border: 'none',
                 padding: '0.75rem 1.1rem',
                 borderRadius: 'var(--radius)',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
               }}
             >
               Contact Me
@@ -112,7 +111,7 @@ export default function Hero() {
           <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
             <button
               onClick={() => window.open('https://github.com/thisabhishekbisht', '_blank', 'noopener,noreferrer')}
-              style={{ 
+              style={{
                 background: 'transparent',
                 border: '1px solid color-mix(in oklab, var(--color-accent) 20%, transparent)',
                 color: 'var(--color-text)',
@@ -121,20 +120,20 @@ export default function Hero() {
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 10%, transparent)'
+                e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 10%, transparent)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.background = 'transparent';
               }}
             >
               <FaGithub size={22} />
             </button>
             <button
               onClick={() => window.open('https://www.linkedin.com/in/thisabhishekbisht/', '_blank', 'noopener,noreferrer')}
-              style={{ 
+              style={{
                 background: 'transparent',
                 border: '1px solid color-mix(in oklab, var(--color-accent) 20%, transparent)',
                 color: 'var(--color-text)',
@@ -143,13 +142,13 @@ export default function Hero() {
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 10%, transparent)'
+                e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 10%, transparent)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.background = 'transparent';
               }}
             >
               <FaLinkedin size={22} />
@@ -158,52 +157,30 @@ export default function Hero() {
         </div>
 
         {/* Right: Card */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           style={{
-            justifySelf: 'stretch',
-            background: 'color-mix(in oklab, var(--color-surface) 85%, black)',
-            border: '1px solid color-mix(in oklab, var(--color-accent) 15%, transparent)',
-            borderRadius: 'var(--radius)',
-            padding: '1rem',
-            display: 'grid',
-            gap: '0.75rem'
-          }}
-        >
-          <div style={{
             width: '100%',
             aspectRatio: '1.6',
             borderRadius: 'var(--radius)',
             background: 'linear-gradient(180deg, color-mix(in oklab, var(--color-accent) 16%, transparent), transparent)',
             border: '1px dashed color-mix(in oklab, var(--color-accent) 25%, transparent)',
             display: 'grid',
-            placeItems: 'center'
-          }}>
-            <span className="muted">Your photo or a showcase image</span>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
-            {[
-              { k: 'Experience', v: '8+ yrs' },
-              { k: 'Projects', v: '10+' },
-              { k: 'Focus', v: 'Android/UI' }
-            ].map((s) => (
-              <div key={s.k} style={{
-                background: 'transparent',
-                border: '1px solid color-mix(in oklab, var(--color-accent) 12%, transparent)',
-                borderRadius: '10px',
-                padding: '0.6rem'
-              }}>
-                <div className="muted" style={{ fontSize: 12 }}>{s.k}</div>
-                <div style={{ fontWeight: 700 }}>{s.v}</div>
+            placeItems: 'center',
+          }}
+        >
+          <span className="muted">Your photo or a showcase image</span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
+          {[{ k: 'Experience', v: '8+ yrs' }, { k: 'Projects', v: '10+' }, { k: 'Focus', v: 'Android/UI' }].map((s) => (
+            <div key={s.k} style={{ background: 'transparent', border: '1px solid color-mix(in oklab, var(--color-accent) 12%, transparent)', borderRadius: '10px', padding: '0.6rem' }}>
+              <div className="muted" style={{ fontSize: 12 }}>
+                {s.k}
               </div>
-            ))}
-          </div>
-        </motion.div>
+              <div style={{ fontWeight: 700 }}>{s.v}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
-  )
+  );
 }
-
-
